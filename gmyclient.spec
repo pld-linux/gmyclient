@@ -20,7 +20,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 
 %description
-Gmyclient is a powerful graphical mysql client to use under GNOME.
+Gmyclient is a powerful graphical MySQL client to use under GNOME.
 Gmyclient is designed to be a simple, quick, and powerful way to
 access your MySQL database.It provides you a powerful way to
 create/edit all MySQL database objects most easy and simple way.
