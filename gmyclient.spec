@@ -60,7 +60,7 @@ install pixmaps/gmyclient_icon.png $RPM_BUILD_ROOT%{_pixmapsdir}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc README TODO NEWS ChangeLog
 %attr(755,root,root) %{_bindir}/*
