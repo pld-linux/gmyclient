@@ -7,6 +7,7 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://gmyclient.sourceforge.net/download/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
+Patch0:		%{name}-acfix.patch
 URL:		http://gmyclient.sourceforge.net/
 BuildRequires:	gtk+-devel >= 1.2.3
 BuildRequires:	libglade-devel
@@ -33,6 +34,7 @@ i edycje Baz MySql.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 libtoolize --copy --force
