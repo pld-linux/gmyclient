@@ -1,8 +1,7 @@
 [Desktop Entry]
 Name=gMyClient
-Name[pl]=gMyKlient
 Comment=MySql Client
-Comment[pl]=MySql Klient
+Comment[pl]=Klient MySql
 Exec=gmyclient
 Icon=gmyclient_icon.png
 Terminal=0
