@@ -1,0 +1,99 @@
+--- gmyclient-0.3/configure.in.wiget	Mon Apr 22 11:20:16 2002
++++ gmyclient-0.3/configure.in	Mon Apr 22 11:24:23 2002
+@@ -130,40 +130,43 @@
+                         CFLAGS="$CFLAGS -I$with_mysql/include"
+ else
+         AC_CHECK_HEADER(/opt/include/mysql/mysql.h,
+-        CFLAGS="$CFLAGS -I/opt/include/mysql" LIBS="$LIBS -L/opt/lib -lmysqlclient",
+-        AC_CHECK_HEADER(/usr/local/include/mysql/mysql.h,
+-        CFLAGS="$CFLAGS -I/usr/local/include/mysql" LIBS="$LIBS -L/usr/local/lib/mysql -lmysqlclient",
+-        AC_CHECK_HEADER(/usr/include/mysql/mysql.h,
+-        CFLAGS="$CFLAGS -I/usr/include/mysql" LIBS="$LIBS -L/usr/lib/mysql -lmysqlclient",
+-        AC_MSG_ERROR(Need MySQL includes! please specify where you
+-        install mysql with the otion --with-mysql))))
++         [CFLAGS="$CFLAGS -I/opt/include/mysql" LIBS="$LIBS -L/opt/lib -lmysqlclient"],
++         [AC_CHECK_HEADER(/usr/local/include/mysql/mysql.h,
++          [CFLAGS="$CFLAGS -I/usr/local/include/mysql" LIBS="$LIBS -L/usr/local/lib/mysql -lmysqlclient"],
++          [AC_CHECK_HEADER(/usr/include/mysql/mysql.h,
++           [CFLAGS="$CFLAGS -I/usr/include/mysql" LIBS="$LIBS -L/usr/lib/mysql -lmysqlclient"],
++           [AC_MSG_ERROR([Need MySQL includes! please specify where you
++        install mysql with the otion --with-mysql])
++		   ])
++		  ])
++		 ])
+ fi
+ 
+ dnl ******************************
+ dnl LibGlade checking
+ dnl ******************************
+-AC_MSG_CHECKING(for Glade libraries >= 0.16)
++AC_MSG_CHECKING([for Glade libraries >= 0.16])
+ if gnome-config --libs libglade > /dev/null 2>&1; then 
+     vers=`gnome-config --modversion libglade | awk 'BEGIN { FS = "."; } { print $1 * 1000 + $2;}'`
+     if test "$vers" -ge 16; then
+-        AC_MSG_RESULT(found)
++        AC_MSG_RESULT([found])
+     else
+-        AC_MSG_ERROR(Warning
++        AC_MSG_ERROR([Warning
+ *********************************************************************************************
+ *                                                                                           *
+ * You need at least GNOME Libglade 0.16 for this version of gmyclient                       *
+ * Get the latest libglade-x.xx.tar.gz at http://www.gnome.org/start/installing/index.php3   *
+ *                                                                                           *
+-*********************************************************************************************)
++*********************************************************************************************])
+     fi
+ else
+-        AC_MSG_ERROR(Warning
++        AC_MSG_ERROR([Warning
+ *********************************************************************************************
+ *                                                                                           *
+ * You need at least GNOME Libglade 0.16 for this version of gmyclient                       *
+ * Get the latest libglade-x.xx.tar.gz at http://www.gnome.org/start/installing/index.php3   *
+ *                                                                                           *
+-*********************************************************************************************)
++*********************************************************************************************])
+ fi
+ 
+ 
+@@ -172,33 +175,33 @@
+ dnl ******************************
+ dnl GnomePrint checking
+ dnl ******************************
+-AC_MSG_CHECKING(for GnomePrint libraries >= 0.28)
++AC_MSG_CHECKING([for GnomePrint libraries >= 0.28])
+ if gnome-config --libs print > /dev/null 2>&1; then 
+     vers=`gnome-config --modversion print | sed -e "s/gnome-print-//" | \
+         awk 'BEGIN { FS = "."; } { print $1 * 1000 + $2;}'`
+     if test "$vers" -ge 28; then
+        AC_DEFINE_UNQUOTED(GM_PRINT_SUPPORT, 1)
+-        AC_MSG_RESULT(found)
++        AC_MSG_RESULT([found])
+     else
+        AC_DEFINE_UNQUOTED(GM_PRINT_SUPPORT, 0)
+-        AC_MSG_RESULT(Warning
++        AC_MSG_RESULT([Warning
+ *********************************************************************************************
+ *                                                                                           *
+ * You need at least GNOME print 0.28 for this version of gmyclient                          *
+ * Get the latest gnome-print-x.xx.tar.gz at http://www.gnome.org/start/installing/index.php3*
+ *                                                                                           *
+ * Gmyclient will build whithout the print functions                                         *
+-*********************************************************************************************)
++*********************************************************************************************])
+     fi
+ else
+-        AC_MSG_RESULT(Warning
++        AC_MSG_RESULT([Warning
+ *********************************************************************************************
+ *                                                                                           *
+ * You need at least GNOME print 0.28 for this version of gmyclient                          *
+ * Get the latest gnome-print-x.xx.tar.gz at http://www.gnome.org/start/installing/index.php3*
+ *                                                                                           *
+ * Gmyclient will build whithout the print functions                                         *
+-*********************************************************************************************)
++*********************************************************************************************])
+ 	AC_DEFINE_UNQUOTED(GM_PRINT_SUPPORT, 0)
+ fi
+ 
