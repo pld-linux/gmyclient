@@ -4,5 +4,5 @@ Comment=MySql Client
 Comment[pl]=Klient MySql
 Exec=gmyclient
 Icon=gmyclient_icon.png
-Terminal=0
+Terminal=false
 Type=Application
