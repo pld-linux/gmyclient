@@ -2,7 +2,7 @@ Summary:	MySQL client for Gnome
 Summary(pl):	Graficzny klient baz MySQL dla ¶rodowiska Gnome
 Name:		gmyclient
 Version:	0.3
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://gmyclient.sourceforge.net/download/%{name}-%{version}.tar.gz
@@ -54,8 +54,6 @@ install -d $RPM_BUILD_ROOT{%{_applnkdir}/Office/Databases,%{_pixmapsdir}}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Office/Databases
 install pixmaps/gmyclient_icon.png $RPM_BUILD_ROOT%{_pixmapsdir}
 
-gzip -9nf README TODO NEWS ChangeLog
-
 %find_lang %{name}
 
 %clean
@@ -63,11 +61,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README TODO NEWS ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/gmyclient
 %dir %{_libdir}/gmyclient/plugins
 %attr(755,root,root) %{_libdir}/gmyclient/plugins/*.so
 %{_datadir}/%{name}
-%{_pixmapsdir}/*
 %{_applnkdir}/Office/Databases/%{name}.desktop
+%{_pixmapsdir}/*
