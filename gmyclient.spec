@@ -38,7 +38,7 @@ i edycjê baz MySQL.
 
 %build
 rm -f missing
-libtoolize --copy --force
+%{__libtoolize}
 aclocal -I macros
 %{__autoconf}
 %{__automake}
