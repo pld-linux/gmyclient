@@ -2,10 +2,11 @@ Summary:	MySQL client for Gnome
 Summary(pl):	Graficzny klient baz MySQL dla ¶rodowiska Gnome
 Name:		gmyclient
 Version:	0.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://gmyclient.sourceforge.net/download/%{name}-%{version}.tar.gz
+# Source0-md5:	81e40c5cf5625b817a3967d5a3772dd8
 Source1:	%{name}.desktop
 Patch0:		%{name}-acfix.patch
 URL:		http://gmyclient.sourceforge.net/
