@@ -1,5 +1,5 @@
-Summary:	MySql client for Gnome
-Summary(pl):	Graficzny klient baz MySql dla ¶rodowiska Gnome
+Summary:	MySQL client for Gnome
+Summary(pl):	Graficzny klient baz MySQL dla ¶rodowiska Gnome
 Name:		gmyclient
 Version:	0.3
 Release:	0.1
@@ -9,12 +9,12 @@ Source0:	http://gmyclient.sourceforge.net/download/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Patch0:		%{name}-acfix.patch
 URL:		http://gmyclient.sourceforge.net/
-BuildRequires:	gtk+-devel >= 1.2.3
-BuildRequires:	libglade-devel
-BuildRequires:	mysql-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
+BuildRequires:	gtk+-devel >= 1.2.3
+BuildRequires:	libglade-devel
+BuildRequires:	mysql-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -27,10 +27,10 @@ access your MySQL database.It provides you a powerful way to
 create/edit all MySQL database objects most easy and simple way.
 
 %description -l pl
-Gmyclient jest graficznym klientem MySql przeznaczonym dla ¶rodowisa
-Gnome. Gmyclient'a zaprojektowano tak by zapewnia³ ³atwy, szybki i w
-pe³ni funkcjonalny dostêp do baz danych MySql. Umo¿liwia on tworzenie
-i edycje Baz MySql.
+Gmyclient jest graficznym klientem MySQL przeznaczonym dla ¶rodowiska
+Gnome. Gmyclienta zaprojektowano tak, by zapewnia³ ³atwy, szybki i w
+pe³ni funkcjonalny dostêp do baz danych MySQL. Umo¿liwia on tworzenie
+i edycjê baz MySQL.
 
 %prep
 %setup -q
