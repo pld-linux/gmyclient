@@ -11,9 +11,9 @@ Patch0:		%{name}-acfix.patch
 URL:		http://gmyclient.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
 BuildRequires:	gtk+-devel >= 1.2.3
 BuildRequires:	libglade-devel
+BuildRequires:	libtool
 BuildRequires:	mysql-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -37,6 +37,7 @@ i edycjê baz MySQL.
 %patch0 -p1
 
 %build
+rm -f missing
 libtoolize --copy --force
 aclocal -I macros
 autoconf
@@ -46,16 +47,14 @@ automake -a -c -f
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_applnkdir}/Office/Databases,%{_pixmapsdir}}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Office/Databases
-install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Office/Databases
 install pixmaps/gmyclient_icon.png $RPM_BUILD_ROOT%{_pixmapsdir}
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Office/Databases
 
-gzip -9nf README TODO INSTALL NEWS COPYING ChangeLog
+gzip -9nf README TODO NEWS ChangeLog
 
 %find_lang %{name}
 
@@ -66,8 +65,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
-%dir %{_datadir}/%{name}
-%{_datadir}/%{name}/pixmaps/*.xpm
-%{_datadir}/%{name}/pixmaps/*.png
+%dir %{_libdir}/gmyclient
+%dir %{_libdir}/gmyclient/plugins
+%attr(755,root,root) %{_libdir}/gmyclient/plugins/*.so
+%{_datadir}/%{name}
 %{_pixmapsdir}/*
 %{_applnkdir}/Office/Databases/%{name}.desktop
