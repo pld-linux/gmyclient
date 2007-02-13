@@ -1,5 +1,5 @@
 Summary:	MySQL client for GNOME
-Summary(pl.UTF-8):   Graficzny klient baz MySQL dla środowiska GNOME
+Summary(pl.UTF-8):	Graficzny klient baz MySQL dla środowiska GNOME
 Name:		gmyclient
 Version:	0.3
 Release:	3
