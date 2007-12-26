@@ -1,10 +1,9 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=gMyClient
 Comment=MySql Client
 Comment[pl]=Klient MySql
 Exec=gmyclient
-Icon=gmyclient_icon.png
+Icon=gmyclient_icon
 Terminal=false
 Type=Application
 # vi: encoding=utf-8
